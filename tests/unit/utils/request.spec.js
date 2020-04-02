@@ -103,7 +103,7 @@ describe('Tests for API request utility : failure cases', () => {
   })
 
   it('testing responsne interceptor failure', () => {
-    request.fetch('/failedtest', {}).then((data) => {
+    request.fetch('/failedtest', {}).then(() => {
     }, (error) => {
       expect(error).toMatchObject(Error('error'))
     })
