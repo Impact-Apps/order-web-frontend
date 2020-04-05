@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ROUTE_CONSTANTS from '@/constants/route'
-import Index from "../pages/Index";
-import HelloWorld from "../components/HelloWorld";
+import Index from "@/pages/Index";
+import HelloWorld from "@/components/HelloWorld";
+import Login from "@/pages/Login";
 
 Vue.use(VueRouter)
 
@@ -29,7 +30,7 @@ const routes = [
   {
     path: ROUTE_CONSTANTS.LOGIN_ROUTE.path,
     name: ROUTE_CONSTANTS.LOGIN_ROUTE.name,
-    component: Index,
+    component: Login,
     props: {},
     meta: {
       title: ROUTE_CONSTANTS.LOGIN_ROUTE.title
