@@ -1,11 +1,12 @@
 import View from '@/pages/View'
 import Footer from '@/components/navigation/Footer'
 import Vuetify from "vuetify";
-import { mount } from "@vue/test-utils";
+import {createLocalVue, mount} from "@vue/test-utils";
 import VueRouter from "vue-router";
 import Vue from "vue";
 
-Vue.use(VueRouter)
+const localVue = createLocalVue()
+localVue.use(VueRouter)
 Vue.use(Vuetify)
 
 const router = new VueRouter({ mode: 'history' })
