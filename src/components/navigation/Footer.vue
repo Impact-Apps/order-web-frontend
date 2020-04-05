@@ -23,6 +23,7 @@ export default {
                 cols="auto"
         >
           <a
+                  :id="`footerLink-${i}`"
                   :href="link.url"
                   class="mr-0 grey--text text--darken-3"
                   rel="noopener"
