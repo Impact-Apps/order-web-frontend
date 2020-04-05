@@ -3,12 +3,6 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default {
     name: 'TopNavbar',
-    props: {
-        navItems: {
-            type: Array,
-            default: () => []
-        }
-    },
     methods: {
         ...mapMutations({
             setDrawer: 'setDrawer'
@@ -30,7 +24,8 @@ export default {
             app
             max-height="75"
     >
-        <v-app-bar-nav-icon @click="setDrawer(!getDrawer)"/>
+        <v-app-bar-nav-icon id="hamburger_button"
+                            @click="setDrawer(!getDrawer)"/>
 
         <v-toolbar-title>Title</v-toolbar-title>
 
