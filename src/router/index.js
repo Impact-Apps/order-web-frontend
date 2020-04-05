@@ -1,20 +1,41 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ROUTE_CONSTANTS from '@/constants/route'
-import HelloWorld from "@/components/HelloWorld";
+import Index from "../pages/Index";
+import HelloWorld from "../components/HelloWorld";
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: ROUTE_CONSTANTS.SAMPLE_ROUTE.path,
-    name: ROUTE_CONSTANTS.SAMPLE_ROUTE.name,
-    component: HelloWorld,
+    path: ROUTE_CONSTANTS.HOME_ROUTE.path,
+    name: ROUTE_CONSTANTS.HOME_ROUTE.name,
+    component: Index,
     props: {},
     meta: {
-      title: ROUTE_CONSTANTS.SAMPLE_ROUTE.title
+      title: ROUTE_CONSTANTS.HOME_ROUTE.title
+    },
+    children: [
+      {
+        path: '',
+        name: 'Test',
+        component: HelloWorld,
+        props: {},
+        meta: {
+          title: 'Test'
+        }
+      }
+    ]
+  },
+  {
+    path: ROUTE_CONSTANTS.LOGIN_ROUTE.path,
+    name: ROUTE_CONSTANTS.LOGIN_ROUTE.name,
+    component: Index,
+    props: {},
+    meta: {
+      title: ROUTE_CONSTANTS.LOGIN_ROUTE.title
     }
-  }
+  },
 ]
 
 /**
