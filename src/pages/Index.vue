@@ -15,9 +15,5 @@
       NavigationDrawer: () => import('@/components/navigation/NavigationDrawer'),
       NavigationView: () => import('@/components/View')
     },
-
-    data: () => ({
-      expandOnHover: false,
-    }),
   }
 </script>
