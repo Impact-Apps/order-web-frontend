@@ -59,7 +59,7 @@ export default {
 
     <v-list>
       <v-list-item
-              v-for="item in navItems"
+              v-for="(item, i) in navItems"
               :key="item.title"
               link
       >
@@ -68,7 +68,7 @@ export default {
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-title :id="`drawerItem-${i}`">{{ item.title }}</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
