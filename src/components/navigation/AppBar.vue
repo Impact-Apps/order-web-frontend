@@ -2,7 +2,7 @@
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
-    name: 'TopNavbar',
+    name: 'AppBar',
     methods: {
         ...mapMutations({
             setDrawer: 'setDrawer'

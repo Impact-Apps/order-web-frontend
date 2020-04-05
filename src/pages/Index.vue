@@ -8,12 +8,12 @@
 
 <script>
   export default {
-    name: 'DashboardIndex',
+    name: 'Index',
 
     components: {
       AppBar: () => import('@/components/navigation/AppBar'),
       NavigationDrawer: () => import('@/components/navigation/NavigationDrawer'),
-      NavigationView: () => import('@/components/View')
+      NavigationView: () => import('@/pages/View')
     },
   }
 </script>

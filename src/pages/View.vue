@@ -10,7 +10,7 @@
   import footerLinks from '@/constants/footer'
 
   export default {
-    name: 'DashboardCoreView',
+    name: 'NavigationView',
 
     components: {
       NavigationFooter: () => import('@/components/navigation/Footer'),

@@ -1,6 +1,7 @@
 <script>
 
 export default {
+  name: 'Footer',
   props: {
     footerLinks: {
       type: Array,

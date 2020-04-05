@@ -2,7 +2,7 @@
   import {mapGetters, mapMutations} from "vuex";
 
 export default {
-  name: 'SideNavigation',
+  name: 'NavigationDrawer',
   props: {
     navItems: {
       type: Array,
