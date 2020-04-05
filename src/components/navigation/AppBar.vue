@@ -1,12 +1,24 @@
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  name: 'TopNavbar',
-  props: {
-    navItems: {
-      type: Array,
-      default: () => []
+    name: 'TopNavbar',
+    props: {
+        navItems: {
+            type: Array,
+            default: () => []
+        }
+    },
+    methods: {
+        ...mapMutations({
+            setDrawer: 'setDrawer'
+        })
+    },
+    computed: {
+        ...mapGetters({
+            getDrawer: 'getDrawer'
+        })
     }
-  }
 }
 </script>
 
@@ -18,7 +30,7 @@ export default {
             app
             max-height="75"
     >
-        <v-app-bar-nav-icon/>
+        <v-app-bar-nav-icon @click="setDrawer(!getDrawer)"/>
 
         <v-toolbar-title>Title</v-toolbar-title>
 

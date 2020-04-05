@@ -5,13 +5,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import sampleState from './modules/sampleState'
+import navigationState from './modules/navigation'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    sampleState
+    navigationState: navigationState
   },
   strict: process.env.NODE_ENV !== 'production'
 })

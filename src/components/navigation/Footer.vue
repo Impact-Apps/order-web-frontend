@@ -1,10 +1,10 @@
 <script>
-import footerLinks from '@/constants/footer'
 
 export default {
-  data () {
-    return {
-      footerLinks
+  props: {
+    footerLinks: {
+      type: Array,
+      default: () => []
     }
   }
 }
