@@ -11,26 +11,28 @@ export default {
 </script>
 
 <template>
-    <v-app-bar color="accent" app max-height="88">
-      <v-row justify="end" align="center">
-        <template v-for="(item, index) in navItems">
-          <router-link :key="item.id" :to="item.href" class="px-2 text-decoration-none">
-            <template>
-              <v-icon v-if="item.icon" color="primary">{{ item.icon }}</v-icon>
-              <span class="body-2">{{ item.label }}</span>
-            </template>
-          </router-link>
-          <v-divider
-            :key="`${item.slug}--divider`"
-            v-if="index < navItems.length - 1"
-            vertical
-          />
-        </template>
-      </v-row>
+    <v-app-bar
+            id="app-bar"
+            absolute
+            color="transparent"
+            app
+            max-height="75"
+    >
+        <v-app-bar-nav-icon/>
+
+        <v-toolbar-title>Title</v-toolbar-title>
+
+        <v-spacer></v-spacer>
+
+        <v-btn icon>
+            <v-icon>mdi-bell</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+            <v-icon>mdi-account</v-icon>
+        </v-btn>
     </v-app-bar>
 </template>
 <style lang="scss">
-  .text-decoration-none {
-    text-decoration: none;
-  }
+
 </style>

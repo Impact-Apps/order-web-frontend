@@ -17,12 +17,12 @@ const routes = [
     },
     children: [
       {
-        path: '',
-        name: 'Test',
+        path: ROUTE_CONSTANTS.DASHBOARD_ROUTE.path,
+        name: ROUTE_CONSTANTS.DASHBOARD_ROUTE.name,
         component: HelloWorld,
         props: {},
         meta: {
-          title: 'Test'
+          title: ROUTE_CONSTANTS.DASHBOARD_ROUTE.title
         }
       }
     ]
