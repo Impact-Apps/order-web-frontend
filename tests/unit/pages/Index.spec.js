@@ -1,7 +1,7 @@
-import Index from '@/pages/Index'
+import Index from '@/views/Index'
 import AppBar from '@/components/navigation/AppBar'
 import NavigationDrawer from '@/components/navigation/NavigationDrawer'
-import View from '@/pages/View'
+import View from '@/views/View'
 import Vuetify from "vuetify";
 import { shallowMount } from "@vue/test-utils";
 import VueRouter from "vue-router";

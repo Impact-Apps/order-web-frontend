@@ -9,7 +9,7 @@
         components: {
             AppBar: () => import('@/components/navigation/AppBar'),
             NavigationDrawer: () => import('@/components/navigation/NavigationDrawer'),
-            NavigationView: () => import('@/pages/View')
+            NavigationView: () => import('@/views/View')
         },
     }
 </script>

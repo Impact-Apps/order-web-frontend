@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ROUTE_CONSTANTS from '@/constants/route'
-import Index from "@/pages/Index";
+import Index from "@/views/Index";
 import HelloWorld from "@/components/HelloWorld";
-import Login from "@/pages/Login";
+import Login from "@/views/Login";
 import Menu from "@/components/Menu";
 
 Vue.use(VueRouter)
