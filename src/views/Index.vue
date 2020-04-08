@@ -1,17 +1,13 @@
 <script>
-    import navItems from '../constants/sideNavItems';
+  export default {
+    name: 'Index',
 
-    export default {
-        name: 'Index',
-        data: () => ({
-            navItems: navItems,
-        }),
-        components: {
-            AppBar: () => import('@/components/navigation/AppBar'),
-            NavigationDrawer: () => import('@/components/navigation/NavigationDrawer'),
-            NavigationView: () => import('@/views/View')
-        },
-    }
+    components: {
+      AppBar: () => import('@/components/navigation/AppBar'),
+      NavigationDrawer: () => import('@/components/navigation/NavigationDrawer'),
+      NavigationView: () => import('@/pages/View')
+    },
+  }
 </script>
 
 <template>
