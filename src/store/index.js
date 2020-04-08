@@ -15,11 +15,11 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    navigationState: navigationStore,
-    menuState: menuStore,
-    userStore: userStore,
-    orderStore: orderStore,
-    restaurantStore: restaurantStore
+    navigation: navigationStore,
+    menu: menuStore,
+    user: userStore,
+    orders: orderStore,
+    restaurant: restaurantStore
   },
   strict: process.env.NODE_ENV !== 'production'
 })

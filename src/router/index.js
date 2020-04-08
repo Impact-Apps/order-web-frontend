@@ -5,8 +5,10 @@ import Index from "@/pages/Index";
 import Order from "@/components/Order";
 import Login from "@/pages/Login";
 import Menu from "@/components/Menu";
-import RestaurantDetailsPage from "../views/RestaurantDetailsPage";
+import RestaurantDetailsPage from "../pages/RestaurantDetailsPage";
 import ActiveOrders from "@/components/ActiveOrders";
+import MenuEditor from "@/components/MenuEditor";
+import Analytics from "@/components/Analytics";
 
 Vue.use(VueRouter)
 
@@ -53,6 +55,24 @@ const routes = [
         props: {},
         meta: {
           title: 'Active Orders'
+        }
+      },
+      {
+        path: '/editMenu',
+        name: 'Create/Edit Menu',
+        component: MenuEditor,
+        props: {},
+        meta: {
+          title: 'Create/Edit Menu'
+        }
+      },
+      {
+        path: '/analytics',
+        name: 'Analytics',
+        component: Analytics,
+        props: {},
+        meta: {
+          title: 'Analytics'
         }
       },
       {
