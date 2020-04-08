@@ -1,19 +1,23 @@
+<script>
+    import navItems from '../constants/sideNavItems';
+
+    export default {
+        name: 'Index',
+        data: () => ({
+            navItems: navItems,
+        }),
+        components: {
+            AppBar: () => import('@/components/navigation/AppBar'),
+            NavigationDrawer: () => import('@/components/navigation/NavigationDrawer'),
+            NavigationView: () => import('@/pages/View')
+        },
+    }
+</script>
+
 <template>
   <v-app>
     <app-bar />
-    <navigation-drawer />
+    <navigation-drawer :nav-items="navItems"/>
     <navigation-view />
   </v-app>
 </template>
-
-<script>
-  export default {
-    name: 'Index',
-
-    components: {
-      AppBar: () => import('@/components/navigation/AppBar'),
-      NavigationDrawer: () => import('@/components/navigation/NavigationDrawer'),
-      NavigationView: () => import('@/pages/View')
-    },
-  }
-</script>

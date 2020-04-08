@@ -4,6 +4,7 @@ import ROUTE_CONSTANTS from '@/constants/route'
 import Index from "@/pages/Index";
 import HelloWorld from "@/components/HelloWorld";
 import Login from "@/pages/Login";
+import Menu from "@/components/Menu";
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,15 @@ const routes = [
         props: {},
         meta: {
           title: ROUTE_CONSTANTS.DASHBOARD_ROUTE.title
+        }
+      },
+      {
+        path: ROUTE_CONSTANTS.MENU_ROUTE.path,
+        name: ROUTE_CONSTANTS.MENU_ROUTE.name,
+        component: Menu,
+        props: {},
+        meta: {
+          title: ROUTE_CONSTANTS.MENU_ROUTE.title
         }
       }
     ]

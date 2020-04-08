@@ -6,11 +6,7 @@ export default {
   props: {
     navItems: {
       type: Array,
-      default: () => [
-          { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-          { title: 'Account', icon: 'mdi-account' },
-          { title: 'About', icon: 'mdi-help-box' },
-      ]
+      default: () => []
     }
   },
   methods: {
@@ -62,14 +58,15 @@ export default {
               v-for="(item, i) in navItems"
               :key="item.title"
               link
+              :to="item.href"
       >
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
 
-        <v-list-item-content>
-          <v-list-item-title :id="`drawerItem-${i}`">{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
+          <v-list-item-content>
+            <v-list-item-title :id="`drawerItem-${i}`">{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
       </v-list-item>
     </v-list>
 
