@@ -1,4 +1,4 @@
-import MENU_API from '@/api/menu'
+import axios from 'axios';
 
 const state = {
     menu: []
@@ -18,14 +18,15 @@ const getters = {
 
 const actions = {
 
-    async getMenu ({commit}, id) {
-        const response = await MENU_API.getMenu(id)
+    async getMenu ({commit}, restaurantId) {
+        const response = await axios.get(`/menu/${restaurantId}/items`)
         commit('setMenu', response)
     }
 
 }
 
 export default {
+    namespaced: true,
     state,
     getters,
     actions,

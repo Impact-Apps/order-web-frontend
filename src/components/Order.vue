@@ -14,9 +14,7 @@
     export default {
         name: "Order",
         methods: {
-            ...mapActions({
-                getOrders: 'getOrders'
-            }),
+            ...mapActions('order', ['getOrders'])
 
         },
         data: () => ({
@@ -35,13 +33,11 @@
             ]
         }),
         computed: {
-            ...mapState({
-                restaurantId: state => state.userStore.restaurantId,
-                orders: state => state.orderStore.orders
-            })
+            ...mapState('order', ['orders']),
+            ...mapState('user', ['restaurantId']),
         },
         created() {
-            this.getOrders(this.restaurantId)
+            this.getOrders({restaurantId: this.restaurantId, status: "done"})
         }
     }
 </script>
