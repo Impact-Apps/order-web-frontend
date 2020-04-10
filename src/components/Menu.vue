@@ -1,12 +1,19 @@
+<template>
+  <v-data-table
+          :headers="headers"
+          :items="menu"
+          :items-per-page="5"
+          class="elevation-1"
+  />
+</template>
+
 <script>
     import {mapActions, mapState} from "vuex";
 
     export default {
         name: "Menu",
         methods: {
-            ...mapActions({
-                getMenu: 'getMenu'
-            })
+            ...mapActions('menu', ['getMenu'])
         },
         data: () => ({
             headers: [
@@ -23,25 +30,14 @@
             ]
         }),
         computed: {
-            ...mapState({
-                menu: state => state.menuState.menu,
-                restaurantId: state => state.userStore.restaurantId,
-            })
+            ...mapState('menu', ['menu']),
+            ...mapState('user', ['restaurantId'])
         },
         created() {
             this.getMenu(this.restaurantId)
         }
     }
 </script>
-
-<template>
-  <v-data-table
-          :headers="headers"
-          :items="menu"
-          :items-per-page="5"
-          class="elevation-1"
-  />
-</template>
 
 <style scoped>
 
