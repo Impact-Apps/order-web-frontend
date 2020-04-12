@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import ROUTE_CONSTANTS from '@/constants/route'
-import Index from "@/pages/Index";
-import HelloWorld from "@/components/HelloWorld";
-import Login from "@/pages/Login";
+import Index from "@/views/Index";
+import Order from "@/components/Order";
+import Login from "@/views/Login";
+import Menu from "@/components/Menu";
 
 Vue.use(VueRouter)
 
@@ -19,10 +20,19 @@ const routes = [
       {
         path: ROUTE_CONSTANTS.DASHBOARD_ROUTE.path,
         name: ROUTE_CONSTANTS.DASHBOARD_ROUTE.name,
-        component: HelloWorld,
+        component: Order,
         props: {},
         meta: {
           title: ROUTE_CONSTANTS.DASHBOARD_ROUTE.title
+        }
+      },
+      {
+        path: ROUTE_CONSTANTS.MENU_ROUTE.path,
+        name: ROUTE_CONSTANTS.MENU_ROUTE.name,
+        component: Menu,
+        props: {},
+        meta: {
+          title: ROUTE_CONSTANTS.MENU_ROUTE.title
         }
       }
     ]

@@ -1,4 +1,4 @@
-import Login from '@/pages/Login'
+import Login from '@/views/Login'
 import Vuetify from "vuetify";
 import {mount} from "@vue/test-utils";
 import Vue from "vue";

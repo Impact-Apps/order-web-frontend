@@ -1,8 +1,9 @@
 const endPoints = {
-  BASE_URL: '',
+  BASE_URL: 'http://localhost:3003',
   TIMEOUT: 120000,
   MENU: '/api/menu',
   RESTAURANT: '/api/restaurant',
-  ITEM: '/api/item'
+  ITEM: '/api/item',
+  ORDER: '/api/order'
 }
 export default endPoints

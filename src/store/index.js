@@ -6,12 +6,18 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import navigationState from './modules/navigation'
+import menuStore from './modules/menu'
+import userStore from './modules/user'
+import orderStore from './modules/orders'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    navigationState: navigationState
+    navigationState: navigationState,
+    menuState: menuStore,
+    userStore: userStore,
+    orderStore: orderStore
   },
   strict: process.env.NODE_ENV !== 'production'
 })
