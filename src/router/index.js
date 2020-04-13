@@ -4,6 +4,7 @@ import ROUTE_CONSTANTS from '@/constants/route'
 import Index from "@/pages/Index";
 import Order from "@/components/Order";
 import Login from "@/pages/Login";
+import Profile from "@/pages/Profile";
 import Menu from "@/components/Menu";
 import ActiveOrders from "@/components/ActiveOrders";
 
@@ -53,18 +54,23 @@ const routes = [
         meta: {
           title: 'Active Orders'
         }
+      },
+      {
+        path: ROUTE_CONSTANTS.LOGIN_ROUTE.path,
+        name: ROUTE_CONSTANTS.LOGIN_ROUTE.name,
+        component: Login,
+        props: {},
+        meta: {
+          title: ROUTE_CONSTANTS.LOGIN_ROUTE.title
+        }
+      },
+      {
+        path: "/profile",
+        name: "profile",
+        component: Profile
       }
     ]
-  },
-  {
-    path: ROUTE_CONSTANTS.LOGIN_ROUTE.path,
-    name: ROUTE_CONSTANTS.LOGIN_ROUTE.name,
-    component: Login,
-    props: {},
-    meta: {
-      title: ROUTE_CONSTANTS.LOGIN_ROUTE.title
-    }
-  },
+  }
 ]
 
 /**

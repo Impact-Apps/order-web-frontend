@@ -12,7 +12,9 @@ const install = (Vue, options) => {
     
     axios.defaults.baseURL = API_CONSTANTS.BASE_URL,
     axios.defaults.timeout = API_CONSTANTS.TIMEOUT
-    axios.interceptors.request.use(function (config) {
+    axios.interceptors.request.use( async function (config) {
+        const token = await Vue.prototype.$auth.getTokenSilently()
+        axios.defaults.headers.common['Authorization'] =  `Bearer ${token}`
         return config
     })
 

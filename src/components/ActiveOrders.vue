@@ -55,8 +55,9 @@
             }
         },
         async created() {
-            await this.getOrders({restaurantId: this.restaurantId, status: { $in: ["pending", "active"]}})
-            this.getEvents()
+            // await this.getOrders({restaurantId: this.restaurantId, status: { $in: ["pending", "active"]}})
+            // this.getEvents()
+
         }
     }
 </script>
