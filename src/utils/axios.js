@@ -8,13 +8,15 @@ const interceptors = {
   },
 };
 
-const install = (Vue, options) => {
+const install = async (Vue, options) => {
     
-    axios.defaults.baseURL = API_CONSTANTS.BASE_URL,
+    axios.defaults.baseURL = API_CONSTANTS.BASE_URL
     axios.defaults.timeout = API_CONSTANTS.TIMEOUT
-    axios.interceptors.request.use( async function (config) {
-        const token = await Vue.prototype.$auth.getTokenSilently()
-        axios.defaults.headers.common['Authorization'] =  `Bearer ${token}`
+
+    axios.interceptors.request.use( function (config) {
+        console.log('making a request')
+        const token = localStorage.getItem('access_token')
+        config.headers['Authorization'] = `Bearer ${token}`
         return config
     })
 

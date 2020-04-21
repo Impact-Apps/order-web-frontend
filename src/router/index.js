@@ -5,6 +5,7 @@ import Index from "@/pages/Index";
 import Order from "@/components/Order";
 import Login from "@/pages/Login";
 import Profile from "@/pages/Profile";
+import Callback from "@/pages/Callback";
 import Menu from "@/components/Menu";
 import ActiveOrders from "@/components/ActiveOrders";
 
@@ -56,23 +57,31 @@ const routes = [
         }
       },
       {
-        path: ROUTE_CONSTANTS.LOGIN_ROUTE.path,
-        name: ROUTE_CONSTANTS.LOGIN_ROUTE.name,
-        component: Login,
-        props: {},
-        meta: {
-          title: ROUTE_CONSTANTS.LOGIN_ROUTE.title
-        }
-      },
-      {
         path: "/profile",
         name: "profile",
         component: Profile
       }
     ]
-  }
+  },
+  {
+    path: ROUTE_CONSTANTS.LOGIN_ROUTE.path,
+    name: ROUTE_CONSTANTS.LOGIN_ROUTE.name,
+    component: Login,
+    props: {},
+    meta: {
+      title: ROUTE_CONSTANTS.LOGIN_ROUTE.title
+    }
+  },
+  {
+    path: '/callback',
+    name: 'callback',
+    component: Callback
+  },
+  {
+    path: '*',
+    redirect: '/'
+  },
 ]
-
 /**
  * @param {object} param0 | takes routes meta object
  * Sets page title using the title property of each route
@@ -90,7 +99,17 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   setPageTitle(to)
-  next()
+  if(to.name === 'callback') {
+    console.log('going to callback ')
+    next()
+  } else if(to.name === 'Login') {
+    console.log('going to Login ')
+    next()
+  } else if (router.app.$auth.isAuthenticated()) {
+    next()
+  } else {
+    next('/login')
+  }
 })
 
 export default router
