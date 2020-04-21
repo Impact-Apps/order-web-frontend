@@ -1,12 +1,12 @@
 import auth0 from 'auth0-js'
 import Vue from 'vue'
-
+import {domain , clientID, audience } from "../../auth_config"
 // exchange the object with your own from the setup step above.
 let webAuth = new auth0.WebAuth({
-    domain: "impact-apps.eu.auth0.com",
-    clientID: "2Jiu7mqUz3D4Uu6zgCpwus3UQTMq8ZK2",
+    domain,
+    clientID,
     redirectUri: 'http://localhost:8080/callback',
-    audience: "http://order-backend.com",
+    audience,
     responseType: 'token id_token',
     scope: 'openid profile'
 })
@@ -59,7 +59,7 @@ let auth = new Vue({
                 localStorage.removeItem('expires_at')
                 localStorage.removeItem('user')
                 webAuth.logout({
-                    clientID: "2Jiu7mqUz3D4Uu6zgCpwus3UQTMq8ZK2",
+                    clientID,
                     returnTo: 'http://localhost:8080/login',
                 })
             })
