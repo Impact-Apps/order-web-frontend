@@ -1,6 +1,6 @@
 <script>
     export default {
-        name: "Rating",
+        name: "Review",
         props: {
             review: {
                 type: String,
@@ -20,8 +20,8 @@
 
 <template>
   <v-card>
-    <v-card-text v-text="review">
-
+    <v-card-text>
+      {{review}}
       <div class="text-center mt-12">
         <v-rating
                 v-model="rating"
@@ -30,13 +30,11 @@
                 empty-icon="$ratingFull"
                 half-increments
                 hover
+                readonly
         ></v-rating>
       </div>
     </v-card-text>
-    <v-divider></v-divider>
-    <v-card-actions class="justify-space-between">
-      <v-card-text>Date Created: {{dateCreated}}</v-card-text>
-    </v-card-actions>
+    <v-card-text>Date Created: {{dateCreated}}</v-card-text>
   </v-card>
 </template>
 
