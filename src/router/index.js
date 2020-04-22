@@ -5,6 +5,7 @@ import Index from "@/views/Index";
 import Order from "@/components/Order";
 import Login from "@/views/Login";
 import Menu from "@/components/Menu";
+import RestaurantDetailsPage from "../views/RestaurantDetailsPage";
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,15 @@ const routes = [
         props: {},
         meta: {
           title: ROUTE_CONSTANTS.MENU_ROUTE.title
+        }
+      },
+      {
+        path: ROUTE_CONSTANTS.RESTAURANT_ROUTE.path,
+        name: ROUTE_CONSTANTS.RESTAURANT_ROUTE.name,
+        component: RestaurantDetailsPage,
+        props: {},
+        meta: {
+          title: ROUTE_CONSTANTS.RESTAURANT_ROUTE.title
         }
       }
     ]
