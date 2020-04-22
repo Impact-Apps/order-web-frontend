@@ -1,37 +1,41 @@
 <script>
     import Review from "../components/Review";
+    import {mapActions, mapState} from "vuex";
     export default {
         name: "RestaurantDetailsPage",
         components: {Review},
-        data: () => ({
-            items: [
-                {
-                    review: "Test1",
-                    rating: 4.0,
-                    dateCreated: '17/05/2020'
-                },
-                {
-                    review: "Test2",
-                    rating: 3.5,
-                    dateCreated: '17/06/2020'
-                }
-            ]
-        }),
+        methods: {
+            ...mapActions({
+                getReviews: 'getReviews'
+            }),
+        },
+        computed: {
+            ...mapState({
+                restaurantId: state => state.userStore.restaurantId,
+                reviews: state => state.restaurantStore.reviews
+            })
+        },
+        created() {
+            this.getReviews(this.restaurantId)
+        }
     }
 </script>
 
 <template>
+  <v-container>
+    <h1>Reviews</h1>
+    <v-list>
+      <template v-for="(item, index) in reviews">
+        <Review
+                :key="index"
+                :review="item.review"
+                :rating=item.rating
+                :date-created="item.createdAt"
+        />
+      </template>
+    </v-list>
+  </v-container>
 
-  <v-list>
-    <template v-for="(item, index) in items">
-      <Review
-              :key="index"
-              :review="item.review"
-              :rating=item.rating
-              :date-created="item.dateCreated"
-      />
-    </template>
-  </v-list>
 </template>
 
 

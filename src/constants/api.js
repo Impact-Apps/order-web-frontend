@@ -9,6 +9,6 @@ const endPoints = {
   ORDER: '/api/order',
 
   //REVIEWS
-  REVIEWS: '/reviews'
+  REVIEWS: 'reviews'
 }
 export default endPoints
