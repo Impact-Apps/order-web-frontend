@@ -1,5 +1,6 @@
 import auth0 from 'auth0-js'
 import Vue from 'vue'
+import addSeconds from "date-fns/add_seconds";
 import {domain , clientID, audience } from "../../auth_config"
 // exchange the object with your own from the setup step above.
 let webAuth = new auth0.WebAuth({
@@ -37,6 +38,8 @@ let auth = new Vue({
             set: function(expiresIn) {
                 let expiresAt = JSON.stringify(expiresIn * 1000 + new Date().getTime())
                 localStorage.setItem('expires_at', expiresAt)
+                const tokensExpiry = addSeconds(new Date(), expiresIn);
+                localStorage.setItem('token_expiry', tokensExpiry);
             }
         },
         user: {
@@ -58,6 +61,7 @@ let auth = new Vue({
                 localStorage.removeItem('id_token')
                 localStorage.removeItem('expires_at')
                 localStorage.removeItem('user')
+                localStorage.removeItem('token_expiry')
                 webAuth.logout({
                     clientID,
                     returnTo: 'http://localhost:8080/login',
@@ -92,5 +96,6 @@ let auth = new Vue({
 export default {
     install: function(Vue) {
         Vue.prototype.$auth = auth
-    }
+    },
+    webAuth,
 }
