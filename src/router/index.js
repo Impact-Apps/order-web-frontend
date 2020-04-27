@@ -15,6 +15,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: ROUTE_CONSTANTS.HOME_ROUTE.path,
+    name: ROUTE_CONSTANTS.HOME_ROUTE.name,
     component: Index,
     props: {},
     meta: {

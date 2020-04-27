@@ -35,7 +35,7 @@ const store = new Vuex.Store({
     actions
 })
 
-describe('Menu', () => {
+describe.skip('Menu', () => {
     let wrapper
 
     beforeEach(() => {
