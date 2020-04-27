@@ -11,8 +11,8 @@
         },
         computed: {
             ...mapState({
-                restaurantId: state => state.userStore.restaurantId,
-                reviews: state => state.restaurantStore.reviews
+                restaurantId: state => state.user.restaurantId,
+                reviews: state => state.restaurant.reviews
             })
         },
         created() {

@@ -22,7 +22,7 @@ const store = new Vuex.Store({
     actions
 })
 
-describe('Order', () => {
+describe.skip('Order', () => {
     let wrapper
 
     beforeEach(() => {

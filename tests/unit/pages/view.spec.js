@@ -1,4 +1,4 @@
-import View from '@/views/View'
+import View from '@/pages/View'
 import Footer from '@/components/navigation/Footer'
 import Vuetify from "vuetify";
 import {createLocalVue, mount} from "@vue/test-utils";

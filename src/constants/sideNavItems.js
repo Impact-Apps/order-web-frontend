@@ -3,9 +3,8 @@ const navItems = [
     { title: 'Menu', icon: 'mdi-view-dashboard', href: '/menu' },
     { title: 'Restaurant', icon: 'mdi-view-dashboard', href: '/restaurant' },
     { title: 'Orders', icon: 'mdi-view-dashboard', href: '/orders' },
-    { title: 'Account', icon: 'mdi-account', href: '/' },
-    { title: 'About', icon: 'mdi-help-box', href: '/' },
+    { title: 'Create/Edit Menu', icon: 'mdi-view-dashboard', href: '/editMenu' },
+    { title: 'Analytics', icon: 'mdi-view-dashboard', href: '/analytics' },
 ]
-
 
 export default navItems

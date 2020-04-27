@@ -14,7 +14,7 @@
     export default {
         name: "Order",
         methods: {
-            ...mapActions('order', ['getOrders'])
+            ...mapActions('orders', ['getOrders'])
 
         },
         data: () => ({
@@ -33,7 +33,7 @@
             ]
         }),
         computed: {
-            ...mapState('order', ['orders']),
+            ...mapState('orders', ['orders']),
             ...mapState('user', ['restaurantId']),
         },
         created() {
