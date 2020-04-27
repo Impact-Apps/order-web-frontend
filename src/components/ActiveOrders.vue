@@ -22,7 +22,7 @@
     export default {
         name: "Order",
         methods: {
-            ...mapActions('order', ['getOrders', 'updateOrderStatus']),
+            ...mapActions('orders', ['getOrders', 'updateOrderStatus']),
             updateOrder(orderId, status) {
                 if(status === "pending") this.updateOrderStatus({orderId, status: "active"})
                 else this.updateOrderStatus({orderId, status: "done"})
@@ -42,9 +42,9 @@
             ]
         }),
         computed: {
-            ...mapState('order', ['orders']),
+            ...mapState('orders', ['orders']),
             ...mapState('user', ['restaurantId']),
-            ...mapGetters('order', ['getFilteredOrders']),
+            ...mapGetters('orders', ['getFilteredOrders']),
 
             pendingOrders() {
                 return this.getFilteredOrders({status: "pending"})
@@ -55,9 +55,8 @@
             }
         },
         async created() {
-            // await this.getOrders({restaurantId: this.restaurantId, status: { $in: ["pending", "active"]}})
-            // this.getEvents()
-
+            await this.getOrders({restaurantId: this.restaurantId, status: { $in: ["pending", "active"]}})
+            this.getEvents()
         }
     }
 </script>

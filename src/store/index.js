@@ -9,6 +9,7 @@ import navigationStore from './modules/navigation'
 import menuStore from './modules/menu'
 import userStore from './modules/user'
 import orderStore from './modules/orders'
+import restaurantStore from "./modules/restaurant";
 
 Vue.use(Vuex)
 
@@ -17,7 +18,8 @@ const store = new Vuex.Store({
     navigation: navigationStore,
     menu: menuStore,
     user: userStore,
-    order: orderStore
+    orders: orderStore,
+    restaurant: restaurantStore
   },
   strict: process.env.NODE_ENV !== 'production'
 })

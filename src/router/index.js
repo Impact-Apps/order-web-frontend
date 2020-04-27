@@ -4,16 +4,19 @@ import ROUTE_CONSTANTS from '@/constants/route'
 import Index from "@/pages/Index";
 import Order from "@/components/Order";
 import Login from "@/pages/Login";
-import Profile from "@/pages/Profile";
+import RestaurantDetailsPage from "../pages/RestaurantDetailsPage";
+import ActiveOrders from "@/components/ActiveOrders";
+import MenuEditor from "@/components/MenuEditor";
+import Analytics from "@/components/Analytics";
 import Callback from "@/pages/Callback";
 import Menu from "@/components/Menu";
-import ActiveOrders from "@/components/ActiveOrders";
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: ROUTE_CONSTANTS.HOME_ROUTE.path,
+    name: ROUTE_CONSTANTS.HOME_ROUTE.name,
     component: Index,
     props: {},
     meta: {
@@ -57,9 +60,31 @@ const routes = [
         }
       },
       {
-        path: "/profile",
-        name: "profile",
-        component: Profile
+        path: '/editMenu',
+        name: 'Create/Edit Menu',
+        component: MenuEditor,
+        props: {},
+        meta: {
+          title: 'Create/Edit Menu'
+        }
+      },
+      {
+        path: '/analytics',
+        name: 'Analytics',
+        component: Analytics,
+        props: {},
+        meta: {
+          title: 'Analytics'
+        }
+      },
+      {
+        path: ROUTE_CONSTANTS.RESTAURANT_ROUTE.path,
+        name: ROUTE_CONSTANTS.RESTAURANT_ROUTE.name,
+        component: RestaurantDetailsPage,
+        props: {},
+        meta: {
+          title: ROUTE_CONSTANTS.RESTAURANT_ROUTE.title
+        }
       }
     ]
   },
