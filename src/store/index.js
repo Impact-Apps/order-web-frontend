@@ -5,7 +5,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import navigationState from './modules/navigation'
+import navigationStore from './modules/navigation'
 import menuStore from './modules/menu'
 import userStore from './modules/user'
 import orderStore from './modules/orders'
@@ -15,7 +15,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    navigationState: navigationState,
+    navigationState: navigationStore,
     menuState: menuStore,
     userStore: userStore,
     orderStore: orderStore,
