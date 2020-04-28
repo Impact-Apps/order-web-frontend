@@ -5,15 +5,11 @@
         name: "RestaurantDetailsPage",
         components: {Review},
         methods: {
-            ...mapActions({
-                getReviews: 'getReviews'
-            }),
+            ...mapActions('restaurant', ['getReviews']),
         },
         computed: {
-            ...mapState({
-                restaurantId: state => state.user.restaurantId,
-                reviews: state => state.restaurant.reviews
-            })
+            ...mapState('restaurant', ['reviews']),
+            ...mapState('user', ['restaurantId']),
         },
         created() {
             this.getReviews(this.restaurantId)

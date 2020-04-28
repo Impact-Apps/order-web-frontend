@@ -10,14 +10,10 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({
-      setDrawer: 'setDrawer'
-    })
+    ...mapMutations('navigation', ['setDrawer'])
   },
   computed: {
-    ...mapGetters({
-      getDrawer: 'getDrawer'
-    }),
+    ...mapGetters('navigation', ['getDrawer']),
 
     drawer: {
       get () {
