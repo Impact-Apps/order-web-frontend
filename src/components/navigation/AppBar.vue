@@ -4,14 +4,10 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
     name: 'AppBar',
     methods: {
-        ...mapMutations({
-            setDrawer: 'setDrawer'
-        })
+        ...mapMutations('navigation', ['setDrawer'])
     },
     computed: {
-        ...mapGetters({
-            getDrawer: 'getDrawer'
-        })
+        ...mapGetters('navigation', ['getDrawer'])
     }
 }
 </script>

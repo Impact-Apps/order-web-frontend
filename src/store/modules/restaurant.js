@@ -1,4 +1,4 @@
-import RESTAURANT_API from '@/api/restaurant'
+import axios from 'axios';
 
 const state = {
     reviews: []
@@ -19,13 +19,14 @@ const getters = {
 const actions = {
 
     async getReviews ({commit}, id) {
-        const response = await RESTAURANT_API.getReviews(id)
+        const response = await axios.get(`/restaurant/${id}/reviews`)
         commit('setReviews', response)
     }
 
 }
 
 export default {
+    namespaced: true,
     state,
     getters,
     actions,
