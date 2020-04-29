@@ -1,5 +1,5 @@
 const state = {
-    restaurantId: '5ea74a4a65fb830705336aa5'
+    restaurantId: '5ea896539f91473d13d181c4'
 }
 
 const mutations = {

@@ -4,6 +4,7 @@ import ROUTE_CONSTANTS from '@/constants/route'
 import Index from "@/pages/Index";
 import Order from "@/components/Order";
 import Login from "@/pages/Login";
+import Register from "@/pages/Register";
 import RestaurantDetailsPage from "../pages/RestaurantDetailsPage";
 import ActiveOrders from "@/components/ActiveOrders";
 import MenuEditor from "@/components/MenuEditor";
@@ -103,6 +104,11 @@ const routes = [
     component: Callback
   },
   {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
     path: '*',
     redirect: '/'
   },
@@ -126,6 +132,8 @@ router.beforeEach((to, from, next) => {
   setPageTitle(to)
   if(to.name === 'callback') {
     console.log('going to callback ')
+    next()
+  } else if(to.name === 'register') {
     next()
   } else if(to.name === 'Login') {
     console.log('going to Login ')
