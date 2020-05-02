@@ -14,7 +14,6 @@ const install = async (Vue, options) => {
     axios.defaults.timeout = API_CONSTANTS.TIMEOUT
 
     axios.interceptors.request.use( function (config) {
-        console.log('making a request')
         const token = localStorage.getItem('access_token')
         config.headers['Authorization'] = `Bearer ${token}`
         return config

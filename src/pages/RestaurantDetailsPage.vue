@@ -9,10 +9,9 @@
         },
         computed: {
             ...mapState('restaurant', ['reviews']),
-            ...mapState('user', ['restaurantId']),
         },
         created() {
-            this.getReviews(this.restaurantId)
+            this.getReviews()
         }
     }
 </script>

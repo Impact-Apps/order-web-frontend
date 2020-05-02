@@ -131,12 +131,10 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   setPageTitle(to)
   if(to.name === 'callback') {
-    console.log('going to callback ')
     next()
   } else if(to.name === 'register') {
     next()
   } else if(to.name === 'Login') {
-    console.log('going to Login ')
     next()
   } else if (router.app.$auth.isAuthenticated()) {
     next()

@@ -12,20 +12,19 @@ const mutations = {
 }
 
 const getters = {
-    getMenu: state => {
-        return state.menu
-    }
+    
 }
 
 const actions = {
 
-    async getMenu ({commit}, restaurantId) {
+    async getMenu ({commit, rootState}) {
+        const restaurantId = rootState.restaurant.restaurantId
         const response = await axios.get(`/menu/${restaurantId}/items`)
         commit('setMenu', response)
     },
 
     async createMenu ({dispatch, rootState}, { menu }) {
-        const restaurantId = rootState.user.restaurantId
+        const restaurantId = rootState.restaurant.restaurantId
         const params = {items: menu, restaurantId}
         const [err] = await to(axios.post(`/menu`, params));
         if(err) console.error(err)
@@ -33,7 +32,7 @@ const actions = {
     },
 
     async updateMenu ({dispatch, rootState}, { menu }) {
-        const restaurantId = rootState.user.restaurantId
+        const restaurantId = rootState.restaurant.restaurantId
         const params = {items: menu, restaurantId}
         const [err] = await to(axios.patch(`/menu/${restaurantId}`, params));
         if(err) console.error(err)
@@ -47,7 +46,7 @@ const actions = {
     },
 
     async deleteMenu({rootState, commit}) {
-        const params = { restaurantId: rootState.user.restaurantId }
+        const params = { restaurantId: rootState.restaurant.restaurantId }
         const [err] = await to(axios.delete('/menu', { params }))
         if(err) console.error(err)
         commit('setMenu', [])

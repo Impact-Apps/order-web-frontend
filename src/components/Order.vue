@@ -34,10 +34,9 @@
         }),
         computed: {
             ...mapState('orders', ['orders']),
-            ...mapState('user', ['restaurantId']),
         },
         created() {
-            this.getOrders({restaurantId: this.restaurantId, status: "done"})
+            this.getOrders({status: "done"})
         }
     }
 </script>

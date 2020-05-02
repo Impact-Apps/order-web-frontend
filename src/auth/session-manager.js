@@ -26,7 +26,6 @@ function initSession() {
 
         let tenMinutesBeforeExpiry = subtractMinutes(tokenExpiryDate, 10);//If the token has expired or will expire in the next 30 minutes
         const now = new Date();
-        console.log(tenMinutesBeforeExpiry, isAfter(now, tenMinutesBeforeExpiry))
         if (isAfter(now, tenMinutesBeforeExpiry)) { //If the token has expired or will expire in the next 10 minutes
             console.log("Token expired/will expire in the next 1 minutes");
             return router.push("/login");

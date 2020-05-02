@@ -31,10 +31,9 @@
         }),
         computed: {
             ...mapState('menu', ['menu']),
-            ...mapState('user', ['restaurantId'])
         },
         created() {
-            this.getMenu(this.restaurantId)
+            this.getMenu()
         }
     }
 </script>

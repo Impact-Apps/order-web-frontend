@@ -35,7 +35,6 @@ describe('Footer', () => {
   })
 
   it('should render all footer links correctly', () => {
-    console.log(wrapper.html())
     for (let i = 0; i < footerLinks.length; i++) {
       const link = wrapper.find(`#footerLink-${i}`)
       expect(link.text()).toBe(footerLinks[i].label)

@@ -27,7 +27,6 @@ let auth = new Vue({
                 return localStorage.getItem('access_token')
             },
             set: function(accessToken) {
-                console.log('what are the chances????')
                 localStorage.setItem('access_token', accessToken)
             }
         },

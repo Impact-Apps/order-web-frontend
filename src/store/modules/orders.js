@@ -33,7 +33,6 @@ const getters = {
     },
 
     getFilteredOrders: state => filterObj => {
-        console.log(filterObj)
         return filter(state.orders, filterObj)
     },
 
@@ -65,7 +64,11 @@ const getters = {
 
 const actions = {
 
-    async getOrders ({commit}, filter) {
+    async getOrders ({commit, rootState}, filter) {
+        filter = {
+            ...filter,
+            restaurantId: rootState.restaurant.restaurantId
+        }
         const params = {
             filter,
         }
@@ -74,27 +77,27 @@ const actions = {
     },
 
     async updateOrderStatus({ dispatch, rootState }, {orderId, status}) {
-        const restaurantId = rootState.user.restaurantId;
+        const restaurantId = rootState.restaurant.restaurantId;
         await axios.patch(`/order/${orderId}`, { status })
         dispatch('getOrders', {restaurantId, status: { $in: ["pending", "active"]}})
     },
 
     async getAggregatedOrderByRestaurant({commit, rootState}) {
-        const restaurantId = rootState.user.restaurantId;
+        const restaurantId = rootState.restaurant.restaurantId;
         const [err, response] = await to(axios.get(`/order/restaurant/${restaurantId}/aggregated`))
         if(err) console.err(err)
         commit('setAggregatedOrdersByRestaurant', response[0])
     },
 
     async getAggregatedOrderByUser({commit, rootState}) {
-        const restaurantId = rootState.user.restaurantId;
+        const restaurantId = rootState.restaurant.restaurantId;
         const [err, response] = await to(axios.get(`/order/restaurant/${restaurantId}/aggregated/user`))
         if(err) console.err(err)
         commit('setAggregatedOrdersByUser', response)
     },
 
     async getAggregatedOrderByItem({commit, rootState}) {
-        const restaurantId = rootState.user.restaurantId;
+        const restaurantId = rootState.restaurant.restaurantId;
         const [err, response] = await to(axios.get(`/order/restaurant/${restaurantId}/aggregated/item`))
         if(err) console.err(err)
         commit('setAggregatedOrdersByItem', response)

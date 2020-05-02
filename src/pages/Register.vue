@@ -1,14 +1,17 @@
 <template>
-    <div>Register</div>
+    <div />
 </template>
 
 <script>
-    // import axios from 'axios'
+    import {mapActions} from 'vuex';
     export default {
         name: "Register",
-        mounted() {
-            // todo -> register restaurant with this id
-            console.log(decodeURI(this.$route.query.user_id))
+        methods: {
+            ...mapActions('restaurant', ['createRestaurant']),
+        },
+        async mounted() {
+            const auth0Id = decodeURI(this.$route.query.user_id)
+            await this.createRestaurant(auth0Id)
             window.location=`https://impact-apps.eu.auth0.com/continue?state=${this.$route.query.state}`
         }
     }
