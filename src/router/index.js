@@ -4,11 +4,13 @@ import ROUTE_CONSTANTS from '@/constants/route'
 import Index from "@/pages/Index";
 import Order from "@/components/Order";
 import Login from "@/pages/Login";
-import Menu from "@/components/Menu";
+import Register from "@/pages/Register";
 import RestaurantDetailsPage from "../pages/RestaurantDetailsPage";
 import ActiveOrders from "@/components/ActiveOrders";
 import MenuEditor from "@/components/MenuEditor";
 import Analytics from "@/components/Analytics";
+import Callback from "@/pages/Callback";
+import Menu from "@/components/Menu";
 
 Vue.use(VueRouter)
 
@@ -96,8 +98,21 @@ const routes = [
       title: ROUTE_CONSTANTS.LOGIN_ROUTE.title
     }
   },
+  {
+    path: '/callback',
+    name: 'callback',
+    component: Callback
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '*',
+    redirect: '/'
+  },
 ]
-
 /**
  * @param {object} param0 | takes routes meta object
  * Sets page title using the title property of each route
@@ -115,7 +130,17 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   setPageTitle(to)
-  next()
+  if(to.name === 'callback') {
+    next()
+  } else if(to.name === 'register') {
+    next()
+  } else if(to.name === 'Login') {
+    next()
+  } else if (router.app.$auth.isAuthenticated()) {
+    next()
+  } else {
+    next('/login')
+  }
 })
 
 export default router

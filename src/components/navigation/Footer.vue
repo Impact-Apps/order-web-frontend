@@ -11,7 +11,7 @@ export default {
 }
 </script>
 <template>
-  <v-footer id="footer">
+  <v-footer id="footer" absolute>
     <v-container>
       <v-row
               align="center"

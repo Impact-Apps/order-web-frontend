@@ -43,7 +43,7 @@
         }),
         computed: {
             ...mapState('orders', ['orders']),
-            ...mapState('user', ['restaurantId']),
+            ...mapState('restaurant', ['restaurantId']),
             ...mapGetters('orders', ['getFilteredOrders']),
 
             pendingOrders() {
@@ -55,7 +55,7 @@
             }
         },
         async created() {
-            await this.getOrders({restaurantId: this.restaurantId, status: { $in: ["pending", "active"]}})
+            await this.getOrders({status: { $in: ["pending", "active"]}})
             this.getEvents()
         }
     }

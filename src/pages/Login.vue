@@ -1,27 +1,3 @@
-<script>
-    export default {
-        name: "Login",
-        data () {
-            return {
-                hidePassword: true,
-                userEmail: null,
-                password: null,
-                error: false,
-                rules: {
-                    required: value => !!value || 'Required.'
-                }
-            }
-        },
-        methods: {
-            login() {
-                if (this.$refs.form.validate()) {
-                    this.$router.push('/')
-                }
-            }
-        }
-    }
-</script>
-
 <template>
   <v-content>
     <v-container fluid fill-height>
@@ -33,37 +9,39 @@
             </div>
             <v-card-text>
 
-              <v-form ref="form">
-                <v-text-field
-                        id="email"
-                        prepend-icon="mdi-account-circle"
-                        label="E-mail"
-                        type="text"
-                        v-model="userEmail"
-                        :error="error"
-                        :rules="[rules.required]"/>
-                <v-text-field
-                        id="password"
-                        prepend-icon="mdi-lock"
-                        :type="hidePassword ? 'password' : 'text'"
-                        :append-icon="hidePassword ? 'mdi-eye-off' : 'mdi-eye'"
-                        label="Password"
-                        :rules="[rules.required]"
-                        v-model="password"
-                        :error="error"
-                        @click:append="hidePassword = !hidePassword"/>
-              </v-form>
+              <!-- Check that the SDK client is not currently loading before accessing is methods -->
+              <div v-if="!$auth.loading">
+                <!-- show login when not authenticated -->
+                {{$auth.isAuthenticated()}}
+                <button v-if="!$auth.isAuthenticated()" @click="login">Log in</button>
+                <!-- show logout when authenticated -->
+                <button v-if="$auth.isAuthenticated()" @click="logout">Log out</button>
+              </div>
             </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-                <v-btn id="login" color="primary" @click="login">Login</v-btn>
-            </v-card-actions>
           </v-card>
         </v-flex>
       </v-layout>
     </v-container>
   </v-content>
 </template>
+
+<script>
+  // .. imports removed for brevity
+
+  export default {
+    methods: {
+      // Log the user in
+      login() {
+        this.$auth.login();
+
+      },
+      // Log the user out
+      logout() {
+        this.$auth.logout()
+      }
+    }
+  };
+</script>
 
 <style scoped>
 

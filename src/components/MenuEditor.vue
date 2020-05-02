@@ -146,7 +146,6 @@
         },
         computed: {
             ...mapState('menu', ['menu']),
-            ...mapState('user', ['restaurantId']),
 
             noMenu () {
                 return isEmpty(this.menu) && isEmpty(this.menuItems)
@@ -166,7 +165,7 @@
             }
         },
         async created() {
-            await this.getMenu(this.restaurantId)
+            await this.getMenu()
             this.menuItems = cloneDeep(this.menu)
         }
     }

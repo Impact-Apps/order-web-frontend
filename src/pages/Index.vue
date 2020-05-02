@@ -1,5 +1,6 @@
 <script>
     import navItems from '../constants/sideNavItems';
+import { initSession } from '../auth/session-manager';
 
     export default {
         name: 'Index',
@@ -10,6 +11,9 @@
             AppBar: () => import('@/components/navigation/AppBar'),
             NavigationDrawer: () => import('@/components/navigation/NavigationDrawer'),
             NavigationView: () => import('@/pages/View')
+        },
+        mounted() {
+          initSession()
         },
     }
 </script>
