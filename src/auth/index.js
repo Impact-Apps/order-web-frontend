@@ -52,8 +52,24 @@ let auth = new Vue({
         }
     },
     methods: {
+        signup(){
+            webAuth.signup({
+                connection: 'Username-Password-Authentication',
+                email: 'liam.mcaweeney2@mail.dcu.ie',
+                password: 'Leeds74!',
+            }, function (err) {
+                if (err) return alert('Something went wrong: ' + err.message);
+                return alert('success signup')
+            });
+        },
         login() {
-            webAuth.authorize()
+            webAuth.login({
+                realm: 'Username-Password-Authentication',
+                username: 'liam.mcaweeney2@mail.dcu.ie',
+                password: 'Leeds74!',
+            }, function (err) {
+                if (err) alert(err.description);
+            });
         },
         logout() {
             return new Promise(() => {
