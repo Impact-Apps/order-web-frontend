@@ -19,6 +19,7 @@
 
 <script>
     import {mapActions, mapState, mapGetters} from "vuex";
+    import { EventSourcePolyfill } from 'event-source-polyfill';
     export default {
         name: "Order",
         methods: {
@@ -28,7 +29,9 @@
                 else this.updateOrderStatus({orderId, status: "done"})
             },
             getEvents() {
-                const source = new EventSource('http://localhost:3003/api/events/');
+                // console.log(this.$auth.accessToken)
+                const EventSource = EventSourcePolyfill;
+                const source = new EventSource('http://localhost:3003/api/events/', { headers: { 'Authorization': `Bearer ${this.$auth.accessToken}` }});
                 source.addEventListener(`newOrderReceived-${this.restaurantId}`, () => { 
                     this.getOrders({restaurantId: this.restaurantId, status: { $in: ["pending", "active"]}}) })
             }

@@ -9,7 +9,7 @@ let webAuth = new auth0.WebAuth({
     redirectUri: 'http://localhost:8080/callback',
     audience,
     responseType: 'token id_token',
-    scope: 'openid profile'
+    scope: 'openid profile email'
 })
 
 let auth = new Vue({
