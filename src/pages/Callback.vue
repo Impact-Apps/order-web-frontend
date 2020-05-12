@@ -7,11 +7,12 @@ import { mapActions } from 'vuex'
     export default {
         name: 'callback',
         methods: {
-            ...mapActions('restaurant', ['getRestaurant'])
+            ...mapActions('restaurant', ['getOrCreateRestaurant'])
         },
         mounted() {
             this.$auth.handleAuthentication().then(async () => {
-                await this.getRestaurant(this.$auth.user.sub)
+                console.log(this.$auth.user)
+                await this.getOrCreateRestaurant({auth0Id: this.$auth.user.sub, email: this.$auth.user.email})
                 this.$router.push({ path: '/' })
             })
         }

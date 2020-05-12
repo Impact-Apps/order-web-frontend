@@ -28,14 +28,17 @@ const actions = {
         commit('setReviews', response)
     },
 
-    async getRestaurant({ commit }, auth0Id) {
-        const [err, response] = await to(axios.get(`/restaurant/${auth0Id}`))
+    async getOrCreateRestaurant({ commit }, { auth0Id, email }) {
+        const params = {
+            email
+        }
+        const [err, response] = await to(axios.get(`/restaurant/${auth0Id}`, { params }))
         if(err) throw new Error(err.message)
         commit('setRestaurant', response._id)
     },
 
     async createRestaurant({ commit }, auth0Id) {
-        const [err, response] = await to(axios.post('/restaurant', {auth0Id}));
+        const [err, response] = await to(axios.post('/restaurant', { auth0Id }));
         if(err) throw new Error(err.message)
         commit('setRestaurant', response._id)
     }

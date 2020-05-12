@@ -16,6 +16,7 @@
     "await-to-js": "2.1.1",
     "axios": "0.19.2",
     "core-js": "3.6.4",
+    "event-source-polyfill": "^1.0.12",
     "url-join": "4.0.1",
     "vue": "2.6.11",
     "vue-router": "3.1.6",
