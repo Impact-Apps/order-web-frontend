@@ -69,12 +69,13 @@ export default {
     <template v-slot:append>
       <div class="pa-2">
         <router-link data-qa="logoLink" to="/login">
-          <v-btn block>Logout</v-btn>
+          <v-btn block @click="$auth.logout()">Logout</v-btn>
         </router-link>
       </div>
     </template>
   </v-navigation-drawer>
 </template>
+
 <style lang="scss">
 
 </style>

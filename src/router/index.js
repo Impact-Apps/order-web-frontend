@@ -11,6 +11,7 @@ import MenuEditor from "@/components/MenuEditor";
 import Analytics from "@/components/Analytics";
 import Callback from "@/pages/Callback";
 import Menu from "@/components/Menu";
+import Account from "@/components/Account";
 
 Vue.use(VueRouter)
 
@@ -86,7 +87,15 @@ const routes = [
         meta: {
           title: ROUTE_CONSTANTS.RESTAURANT_ROUTE.title
         }
-      }
+      },
+      {
+        path: '/account',
+        name: 'Account',
+        component: Account,
+        meta: {
+          title: 'Account'
+        }
+      },
     ]
   },
   {

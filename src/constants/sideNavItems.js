@@ -5,6 +5,7 @@ const navItems = [
     { title: 'Orders', icon: 'mdi-view-dashboard', href: '/orders' },
     { title: 'Create/Edit Menu', icon: 'mdi-view-dashboard', href: '/editMenu' },
     { title: 'Analytics', icon: 'mdi-view-dashboard', href: '/analytics' },
+    { title: 'Account', icon: 'mdi-view-dashboard', href: '/account' },
 ]
 
 export default navItems

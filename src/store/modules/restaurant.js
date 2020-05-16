@@ -41,6 +41,21 @@ const actions = {
         const [err, response] = await to(axios.post('/restaurant', { auth0Id }));
         if(err) throw new Error(err.message)
         commit('setRestaurant', response._id)
+    },
+
+    async getStripeSetUpLink({ state }) {
+        const [err, response] = await to(axios.get(`/payment/${state.restaurantId}/setup`));
+        if(err) throw new Error(err.message)
+        return response.url
+    },
+
+    async setUpBankAccount({ state }, token) {
+        const params = {
+            token
+        }
+        const [err, response] = await to(axios.get(`/payment/${state.restaurantId}/setupBankAccount`, { params }));
+        if(err) throw new Error(err.message)
+        return response
     }
 
 }
