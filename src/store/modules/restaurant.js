@@ -4,6 +4,7 @@ import to from 'await-to-js';
 const state = {
     reviews: [],
     restaurantId: null,
+    restaurantDetails: null,
 }
 
 const mutations = {
@@ -13,6 +14,10 @@ const mutations = {
 
     setRestaurant(state, restaurantId) {
         state.restaurantId = restaurantId;
+    },
+
+    setRestaurantDetails(state, restaurant) {
+        state.restaurantDetails = restaurant;
     }
 }
 
@@ -35,6 +40,16 @@ const actions = {
         const [err, response] = await to(axios.get(`/restaurant/${auth0Id}`, { params }))
         if(err) throw new Error(err.message)
         commit('setRestaurant', response._id)
+        commit('setRestaurantDetails', response)
+        return response
+    },
+
+    async updateRestaurant({ state, commit }, accountDetails) {
+        const [err, response] = await to(axios.patch(`/restaurant/${state.restaurantId}`, accountDetails))
+        if(err) throw new Error(err.message)
+        commit('setRestaurantDetails', accountDetails)
+        console.log(response)
+        return response
     },
 
     async createRestaurant({ commit }, auth0Id) {

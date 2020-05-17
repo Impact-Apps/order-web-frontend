@@ -3,10 +3,7 @@
         <div class="d-flex justify-center" v-if="noMenu">
             <span class="icon-button" @click="addItemToMenu">Create a menu<v-icon color="primary">mdi-pencil</v-icon></span>
         </div>
-         <v-card v-else
-            class="mx-auto"
-         >
-            <v-container>
+            <v-container v-else>
             <v-row v-for="(item, index) in menuItems" :key="index">
 
                 <v-col
@@ -47,7 +44,25 @@
                                         @blur="updateMenuItem(index, 'cuisine', $event)"
                                     ></v-text-field>
                                 </v-col>
-                                <v-col cols="8">
+                                <v-col cols="2">
+                                    <v-text-field
+                                        label="Price"
+                                        solo
+                                        prepend-inner-icon="mdi-currency-eur"
+                                        :value="item.price"
+                                        type="number"
+                                        @blur="updateMenuItem(index, 'price', $event)"
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col cols="2">
+                                    <v-text-field
+                                        label="Label"
+                                        solo
+                                        :value="item.label"
+                                        @blur="updateMenuItem(index, 'label', $event)"
+                                    ></v-text-field>
+                                </v-col>
+                                <v-col cols="4">
                                     <v-text-field
                                     label="Image URL"
                                     solo
@@ -80,7 +95,6 @@
             <v-col cols="1"><v-btn style="float: right" :disabled="!menuUpdated" color="primary" @click="saveMenu()">{{ createOrSave }}</v-btn></v-col>
             </v-row>
             </v-container>
-        </v-card>
     </div>
 </template>
 
@@ -96,8 +110,7 @@
             },
 
             updateMenuItem(index, field, event) {
-                this.$set(this.menuItems[index], field, trim(event.target.value))
-                
+                this.$set(this.menuItems[index], field, trim(event.target.value))   
             },
 
             updateVegetarianStatus(index, event) {

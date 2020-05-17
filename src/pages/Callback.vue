@@ -11,7 +11,6 @@ import { mapActions } from 'vuex'
         },
         mounted() {
             this.$auth.handleAuthentication().then(async () => {
-                console.log(this.$auth.user)
                 await this.getOrCreateRestaurant({auth0Id: this.$auth.user.sub, email: this.$auth.user.email})
                 this.$router.push({ path: '/' })
             })
