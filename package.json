@@ -14,7 +14,7 @@
     "@auth0/auth0-spa-js": "1.6.5",
     "auth0-js": "9.13.2",
     "await-to-js": "2.1.1",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "core-js": "3.6.4",
     "event-source-polyfill": "^1.0.12",
     "url-join": "4.0.1",
